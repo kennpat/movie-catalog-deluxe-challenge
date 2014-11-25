@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en" >
+
+<head>
+  <meta charset="utf-8">
+  <!-- If you delete this meta tag World War Z will become a reality -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie</title>
+  <link rel="stylesheet" href="public/foundation.css">
+
+  <!-- This is how you would link your custom stylesheet -->
+  <link rel="stylesheet" href="public/app.css">
+
+  <script src="js/vendor/modernizr.js"></script>
+
+</head>
+
+<div class="container">
+  <body>
+    <ul>
+
+      <h1>Movie</h1>
+
+      <% @actors_and_id.each do |name_and_id| %>
+      <li>
+        <a href= 'actors/<%= name_and_id['id'] %>'><%= name_and_id['name'] %></a>
+      </li>
+      <% end %>
+    </ul>
+  </body>
+</div>
+
+</html>
+
+<!-- will show a list of actors, sorted alphabetically by name. Each actor name is a link to the details page for that actor. -->
