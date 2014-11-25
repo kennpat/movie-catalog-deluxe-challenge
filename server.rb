@@ -1,3 +1,7 @@
+# Allison Browne and Patrick Kennedy
+# Movie-catalog-deluxe challenge
+# 11/25/14
+
 require 'pg'
 require 'sinatra'
 require 'pry'
@@ -44,7 +48,9 @@ get '/actors/:id' do
 end
 
 get '/movies' do
-
+  db_connection do |conn|
+    @movies_and_id = conn.exec_params('SELECT movies.title, movies.  FROM actors ORDER BY actors.name')
+  end
   # will show a table of movies, sorted alphabetically by title.
   # The table includes the movie title,
   # the year it was released, the rating, the genre, and the studio that produced it.
