@@ -1,6 +1,8 @@
 # Allison Browne and Patrick Kennedy
 # Movie-catalog-deluxe challenge
 # 11/25/14
+# NOTE THE EXTRA CREDIT HAS NOT BEEN ADDED AS OF YET, WHEN WORKING I WILL RESUBMIT
+
 
 require 'pg'
 require 'sinatra'
