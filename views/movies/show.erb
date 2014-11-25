@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en" >
+
+<head>
+  <meta charset="utf-8">
+  <!-- If you delete this meta tag World War Z will become a reality -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie</title>
+  <link rel="stylesheet" href="public/foundation.css">
+
+  <!-- This is how you would link your custom stylesheet -->
+  <link rel="stylesheet" href="public/app.css">
+
+  <script src="js/vendor/modernizr.js"></script>
+
+</head>
+
+<div class="container">
+  <body>
+    <ul>
+
+      <h1>Movie</h1>
+      <p>Genre: <%= @movie_info[0]['genre_name'] %></p>
+      <p>Studio: <%= @movie_info[0]['studio_name'] %></p>
+      <p>Characters: </p>
+
+      <% @movie_info.each do |movie| %>
+      <li>
+        <%= movie['character'] %> played by <a href= '/actors/<%= movie['actors_id'] %>'><%= movie['actors_name']%></a>
+
+      </li>
+      <% end %>
+    </ul>
+  </body>
+
+</div>
+
+</html>
+
+
+@movie_info = conn.exec_params("SELECT movies.title, genres.name, genres.id, studios.name, studios.id, actors.name,
+cast_members.character FROM movies
