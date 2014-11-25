@@ -48,8 +48,12 @@ get '/actors/:id' do
 end
 
 get '/movies' do
+
   db_connection do |conn|
-    @movies_and_id = conn.exec_params('SELECT movies.title, movies.  FROM actors ORDER BY actors.name')
+    @movies_and_id = conn.exec_params('SELECT movies.id AS id, movies.title AS title, movies.year AS year, studios.name AS studio, genres.name AS genre
+      FROM movies JOIN genres ON movies.genre_id = genres.id
+      JOIN studios ON movies.studio_id = studios.id
+      ORDER BY movies.title')
   end
   # will show a table of movies, sorted alphabetically by title.
   # The table includes the movie title,

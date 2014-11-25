@@ -22,10 +22,10 @@
 
       <h1>Movie</h1>
 
-      <% @actors_and_id.each do |name_and_id| %>
-      <li>
-        <a href= 'actors/<%= name_and_id['id'] %>'><%= name_and_id['name'] %></a>
-      </li>
+      <% @movies_and_id.each do |movie| %>
+        <li><a href= 'movies/<%= movie['id'] %>'><%= movie['title']%></a> debuted in <%= movie['year'] %> in the genre of <%= movie['genre'] %>
+
+        </li>
       <% end %>
     </ul>
   </body>
